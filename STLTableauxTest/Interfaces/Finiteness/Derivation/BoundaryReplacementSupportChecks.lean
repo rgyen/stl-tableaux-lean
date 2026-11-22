@@ -1,0 +1,17 @@
+import STLTableaux.Finiteness.Derivation.BoundaryReplacementSupport
+open STLTableau.Section4.Finiteness
+#check boundaryReplacement_syntax_subset
+#check boundaryReplacement_resetNames_subset
+#check boundaryReplacement_freeClocks
+#check boundaryReplacement_nextPrivate
+#check boundaryReplacement_nextSyntaxClocks
+#check boundaryReplacement_private
+#check boundaryReplacement_source_next_disjoint
+#check Resolve.boundaryReplacement
+#print axioms boundaryReplacement_syntax_subset
+#print axioms boundaryReplacement_resetNames_subset
+#print axioms boundaryReplacement_freeClocks
+#print axioms boundaryReplacement_nextPrivate
+#print axioms boundaryReplacement_private
+#print axioms boundaryReplacement_source_next_disjoint
+#print axioms Resolve.boundaryReplacement

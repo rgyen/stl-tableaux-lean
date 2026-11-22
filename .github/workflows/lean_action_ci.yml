@@ -1,0 +1,66 @@
+name: Lean formalization checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - name: Free disk space on the hosted runner
+        if: runner.environment == 'github-hosted'
+        shell: bash
+        run: |
+          df -h "$RUNNER_TEMP"
+          sudo -n rm -rf -- /usr/local/lib/android/sdk /usr/share/dotnet
+          df -h "$RUNNER_TEMP"
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-mathlib-cache: false
+          use-github-cache: false
+      - name: Package the source archive
+        run: python3 scripts/package_source.py
+      - name: Check the extracted source
+        shell: bash
+        env:
+          MATHLIB_CACHE_DIR: ${{ runner.temp }}/stl-mathlib-cache
+        run: |
+          source_dir="$RUNNER_TEMP/stl-tableaux-lean-extracted"
+          mkdir -p "$source_dir"
+          tar -xzf .formalization-build/stl-tableaux-lean-source.tar.gz -C "$source_dir"
+          cd "$source_dir/stl-tableaux-lean-source"
+          lake exe cache get
+          lake exe cache 'clean!'
+          df -h "$RUNNER_TEMP"
+          python3 scripts/check_formalization.py --full --lsp --log-dir "$GITHUB_WORKSPACE/.formalization-build/validation/full"
+      - name: Report disk space on failure
+        if: failure()
+        run: df -h "$RUNNER_TEMP"
+      - name: Preserve evaluation logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: proof-evaluation-logs
+          path: .formalization-build/validation/full/
+      - name: Preserve evaluated source and checksum
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: proof-source
+          path: |
+            .formalization-build/stl-tableaux-lean-source.tar.gz
+            .formalization-build/stl-tableaux-lean-source.tar.gz.sha256

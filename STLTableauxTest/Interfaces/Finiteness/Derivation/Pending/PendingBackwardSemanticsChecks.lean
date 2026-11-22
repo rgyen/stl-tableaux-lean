@@ -1,0 +1,4 @@
+import STLTableaux.Finiteness.Derivation.Pending.PendingBackwardSemantics
+open STLTableau.Section4.Finiteness
+#check inherited_ordinary_output_facts
+#print axioms inherited_ordinary_output_facts

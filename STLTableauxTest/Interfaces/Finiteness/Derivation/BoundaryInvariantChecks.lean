@@ -1,0 +1,16 @@
+import STLTableaux.Finiteness.Derivation.BoundaryInvariant
+
+open STLTableau.Section4.Finiteness.BoundaryInvariant
+
+#check numeric_bounded_to_upper
+#check invariant_bounded_to_upper
+#check boundary_numeric_under_reset
+#check boundary_invariant_under_reset
+#check replace_boundary_numeric
+#check replace_boundary_invariant
+#print axioms numeric_bounded_to_upper
+#print axioms invariant_bounded_to_upper
+#print axioms boundary_numeric_under_reset
+#print axioms boundary_invariant_under_reset
+#print axioms replace_boundary_numeric
+#print axioms replace_boundary_invariant

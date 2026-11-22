@@ -1,0 +1,17 @@
+import STLTableaux.Finiteness.Bounds.RightClockAge
+
+open STLTableau.Section4.Finiteness.RightClockAge
+
+#check endpoint_left_reset
+#check right_age_after_next_left_reset
+#check endpoint_after_next_left_reset
+#check finite_bounded_no_right_reset
+#check unbounded_bounded_no_right_reset
+#check finite_bounded_endpointAlong
+#check unbounded_bounded_endpointAlong
+#check trace_endpoint_preserved
+#print axioms finite_bounded_no_right_reset
+#print axioms unbounded_bounded_no_right_reset
+#print axioms finite_bounded_endpointAlong
+#print axioms unbounded_bounded_endpointAlong
+#print axioms trace_endpoint_preserved

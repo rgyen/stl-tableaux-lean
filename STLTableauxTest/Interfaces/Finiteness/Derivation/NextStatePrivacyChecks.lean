@@ -1,0 +1,7 @@
+import STLTableaux.Finiteness.Derivation.NextStatePrivacy
+open STLTableau.Section4.Finiteness
+#check nextCurrentPrivate
+#check canonical_next_predicate_origin
+#check canonical_next_state_private
+#print axioms canonical_next_predicate_origin
+#print axioms canonical_next_state_private

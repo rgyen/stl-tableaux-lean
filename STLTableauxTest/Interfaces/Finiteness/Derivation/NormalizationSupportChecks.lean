@@ -1,0 +1,12 @@
+import STLTableaux.Finiteness.Derivation.NormalizationSupport
+
+open STLTableau.Section4.Finiteness
+
+#check SafeNormalization.allClocks_subset_syntax
+#check NormalizationSupport.allClocks_union
+#check NormalizationSupport.allClocks_underReset
+#check NormalizationSupport.unionCompatible_of_disjoint_syntax
+#print axioms SafeNormalization.allClocks_subset_syntax
+#print axioms NormalizationSupport.allClocks_union
+#print axioms NormalizationSupport.allClocks_underReset
+#print axioms NormalizationSupport.unionCompatible_of_disjoint_syntax

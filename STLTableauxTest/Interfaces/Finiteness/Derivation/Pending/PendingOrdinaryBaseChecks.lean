@@ -1,0 +1,5 @@
+import STLTableaux.Finiteness.Derivation.Pending.PendingOrdinaryBase
+open STLTableau.Section4.Finiteness
+#check OrdinaryCompletion
+#check ordinary_completion_zero
+#print axioms ordinary_completion_zero

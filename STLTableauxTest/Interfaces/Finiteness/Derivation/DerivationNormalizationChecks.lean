@@ -1,0 +1,11 @@
+import STLTableaux.Finiteness.Derivation.DerivationNormalization
+
+open STLTableau.Section4.Finiteness
+
+#check RawBranch.source_nonatomic
+#check DerivationNormalization.projection_add_nonatomic
+#check Resolve.normalize_erased_eq_projection
+#check Resolve.normalize_erased_of_full
+#print axioms RawBranch.source_nonatomic
+#print axioms Resolve.normalize_erased_eq_projection
+#print axioms Resolve.normalize_erased_of_full

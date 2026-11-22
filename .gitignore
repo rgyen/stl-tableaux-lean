@@ -1,0 +1,9 @@
+/.lake
+
+# Local system and Python cache files.
+.DS_Store
+__pycache__/
+*.py[cod]
+
+# Local build, LSP and evaluation logs.
+/.formalization-build/

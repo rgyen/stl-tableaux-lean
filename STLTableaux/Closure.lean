@@ -1,0 +1,89 @@
+/-
+Copyright (c) 2026 Geunyeol Yu. All rights reserved.
+Released under the GNU General Public License, version 3. See LICENSE.
+Authors: Geunyeol Yu
+-/
+import STLTableaux.Closure.Catalogue.FaithfulAlphaCatalogue
+import STLTableaux.Closure.Catalogue.FaithfulContextualCatalogue
+import STLTableaux.Closure.Catalogue.FaithfulContextualFreshBranch
+import STLTableaux.Closure.Catalogue.FaithfulFreshBranch
+import STLTableaux.Closure.Correctness.ClosureSoundness
+import STLTableaux.Closure.Correctness.ConcreteClosure
+import STLTableaux.Closure.Correctness.FaithfulClosureCompleteness
+import STLTableaux.Closure.Correctness.FaithfulClosureIteration
+import STLTableaux.Closure.Correctness.FaithfulClosureProgress
+import STLTableaux.Closure.Correctness.FaithfulClosureSoundness
+import STLTableaux.Closure.Correctness.FaithfulFreeClosure
+import STLTableaux.Closure.Correctness.GeneralClosureCompleteness
+import STLTableaux.Closure.Correctness.MixedConcreteClosure
+import STLTableaux.Closure.Correctness.NumericFromInvariant
+import STLTableaux.Closure.Correctness.SatisfiedAlphaClosure
+import STLTableaux.Closure.Counterexamples.CounterexamplesClosure
+import STLTableaux.Closure.Counterexamples.Section4Counterexamples
+import STLTableaux.Closure.Expansion.BranchwiseClosure
+import STLTableaux.Closure.Expansion.BranchwiseClosureOrbitBound
+import STLTableaux.Closure.Expansion.BranchwiseClosureTermination
+import STLTableaux.Closure.Expansion.BranchwiseExpansion
+import STLTableaux.Closure.Expansion.BranchwiseLengthCore
+import STLTableaux.Closure.Expansion.BranchwiseOrbitFinite
+import STLTableaux.Closure.Expansion.BranchwiseRank
+import STLTableaux.Closure.Expansion.BranchwiseRankCore
+import STLTableaux.Closure.Expansion.BranchwiseRankOrbit
+import STLTableaux.Closure.Expansion.BranchwiseRename
+import STLTableaux.Closure.Expansion.BranchwiseRuleShape
+import STLTableaux.Closure.Expansion.BranchwiseUnion
+import STLTableaux.Closure.Expansion.ClosureCompletenessViaLevels
+import STLTableaux.Closure.Expansion.ExpansionRankTermination
+import STLTableaux.Closure.Expansion.FaithfulExpansionLevels
+import STLTableaux.Closure.Expansion.FaithfulExpansionRank
+import STLTableaux.Closure.Expansion.FaithfulLevelComplexityBounded
+import STLTableaux.Closure.Expansion.FaithfulLevelRankBounds
+import STLTableaux.Closure.Expansion.FaithfulPExpansion
+import STLTableaux.Closure.Expansion.FaithfulPExpansionProvenance
+import STLTableaux.Closure.Expansion.FiniteClockFormInventory
+import STLTableaux.Closure.Expansion.FiniteClockPalette
+import STLTableaux.Closure.Expansion.FixedExpansionOrder
+import STLTableaux.Closure.Expansion.MinimalClosureReachability
+import STLTableaux.Closure.Expansion.PrefixOrbitTermination
+import STLTableaux.Closure.Normalization.ClosureAlphaNext
+import STLTableaux.Closure.Normalization.ClosureCompatibility
+import STLTableaux.Closure.Normalization.ConcreteNormalization
+import STLTableaux.Closure.Normalization.FaithfulAlphaInvariant
+import STLTableaux.Closure.Normalization.FaithfulAlphaNormalization
+import STLTableaux.Closure.Normalization.FaithfulAlphaStability
+import STLTableaux.Closure.Normalization.FaithfulTNFExistence
+import STLTableaux.Closure.Normalization.FaithfulUnion
+import STLTableaux.Closure.Normalization.FaithfulUnionSemantics
+import STLTableaux.Closure.Normalization.NonPredicateAlphaTransport
+import STLTableaux.Closure.Normalization.NonPredicateFiniteNormalization
+import STLTableaux.Closure.Normalization.NonPredicateInfiniteNormalization
+import STLTableaux.Closure.Normalization.NormalizedFiniteInvariant
+import STLTableaux.Closure.Normalization.NormalizedInfiniteInvariant
+import STLTableaux.Closure.Normalization.NormalizedStability
+import STLTableaux.Closure.Normalization.NumericAlphaTransport
+import STLTableaux.Closure.Normalization.NumericFiniteNormalization
+import STLTableaux.Closure.Normalization.NumericInfiniteNormalization
+import STLTableaux.Closure.Normalization.UnboundedConcreteNormalization
+import STLTableaux.Closure.Residual.AlphaClosure
+import STLTableaux.Closure.Residual.AlphaConversion
+import STLTableaux.Closure.Residual.AlphaTransport
+import STLTableaux.Closure.Residual.BranchExtension
+import STLTableaux.Closure.Residual.BranchNormalization
+import STLTableaux.Closure.Residual.BranchTransitionForm
+import STLTableaux.Closure.Residual.Closure
+import STLTableaux.Closure.Residual.ClosureExistence
+import STLTableaux.Closure.Residual.ClosureSemantics
+import STLTableaux.Closure.Residual.FreshNormalization
+import STLTableaux.Closure.Residual.SatisfiedClosure
+import STLTableaux.Closure.Subsumption.FaithfulAlphaSubsumption
+import STLTableaux.Closure.Subsumption.FaithfulClosureOrder
+import STLTableaux.Closure.Subsumption.FaithfulClosureRestriction
+import STLTableaux.Closure.Subsumption.InvariantTransport
+import STLTableaux.Closure.Subsumption.NumericGuardSubsumption
+import STLTableaux.Closure.Subsumption.SubsumptionAppendix
+import STLTableaux.Closure.Support.BranchFreeClocks
+import STLTableaux.Closure.Support.ClosureFreeSupport
+import STLTableaux.Closure.Support.ClosureGuardSupport
+
+/-! Syntactic subsumption, closures, and expansion levels. Closure soundness
+and completeness are Theorems 4.14 and 4.22. -/

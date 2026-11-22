@@ -1,0 +1,33 @@
+import STLTableaux.Finiteness.Derivation.BoundaryRuleConditions
+
+open STLTableau.Section4.Finiteness
+
+#check boundary_comparison_after_elapse
+#print axioms boundary_comparison_after_elapse
+#check defer_successor_numeric
+#print axioms defer_successor_numeric
+#check check_successor_numeric
+#print axioms check_successor_numeric
+#check defer_next_body_conditions
+#print axioms defer_next_body_conditions
+#check finite_upperAlways_defer_conditions
+#print axioms finite_upperAlways_defer_conditions
+#check unbounded_upperAlways_defer_conditions
+#print axioms unbounded_upperAlways_defer_conditions
+#check finite_upperEventually_defer_conditions
+#print axioms finite_upperEventually_defer_conditions
+#check unbounded_upperEventually_defer_conditions
+#print axioms unbounded_upperEventually_defer_conditions
+#check finite_upperAlways_check_conditions
+#print axioms finite_upperAlways_check_conditions
+#check unbounded_upperAlways_check_conditions
+#print axioms unbounded_upperAlways_check_conditions
+#check finite_upperEventually_check_conditions
+#print axioms finite_upperEventually_check_conditions
+#check unbounded_upperEventually_check_conditions
+#print axioms unbounded_upperEventually_check_conditions
+#check defer_successor_boundary_merge
+#print axioms defer_successor_boundary_merge
+
+#check check_successor_boundary_merge
+#print axioms check_successor_boundary_merge

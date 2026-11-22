@@ -1,0 +1,17 @@
+import STLTableaux.Finiteness.Derivation.Pending.PendingBoundaryChild
+open STLTableau.Section4.Finiteness
+#check assemble_boundary_child
+#check construct_boundary_child_owned
+#check boundaryChildGuards_set
+#check boundary_exposure_weight
+#check optional_boundary_child_weight
+#check required_boundary_child_weight
+#check boundary_child_weight_compare
+#check boundary_child_activeSupport_subset
+#check boundary_child_protected
+#print axioms assemble_boundary_child
+#print axioms construct_boundary_child_owned
+#print axioms boundary_exposure_weight
+#print axioms boundary_child_weight_compare
+#print axioms boundary_child_activeSupport_subset
+#print axioms boundary_child_protected

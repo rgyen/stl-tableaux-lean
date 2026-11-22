@@ -1,0 +1,11 @@
+import STLTableaux.Finiteness.Derivation.Pending.PendingSelectedStep
+
+open STLTableau.Section4.Finiteness
+
+#check owned_selected_facts
+#check canonical_body_weight
+#check owned_selected_weight
+#check exists_ordinary_child_present_of_input
+#print axioms owned_selected_facts
+#print axioms owned_selected_weight
+#print axioms exists_ordinary_child_present_of_input

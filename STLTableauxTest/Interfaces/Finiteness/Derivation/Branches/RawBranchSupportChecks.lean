@@ -1,0 +1,15 @@
+import STLTableaux.Finiteness.Derivation.Branches.RawBranchSupport
+
+open STLTableau.Section4.Finiteness
+
+#check RawBranch.syntaxClocks_subset_source_union_resets
+#check RawBranch.current_child_new
+#check RawBranch.syntaxClocks_subset_source_union_singleton
+#check RawBranch.current_child_subset_singleton
+#check RawBranch.new_support_disjoint_history
+#check RawBranch.current_child_disjoint_history
+#check exists_selected_branch_history_with_support
+#print axioms RawBranch.syntaxClocks_subset_source_union_resets
+#print axioms RawBranch.current_child_new
+#print axioms RawBranch.new_support_disjoint_history
+#print axioms exists_selected_branch_history_with_support

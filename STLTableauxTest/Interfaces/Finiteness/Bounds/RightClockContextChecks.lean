@@ -1,0 +1,19 @@
+import STLTableaux.Finiteness.Bounds.RightClockContext
+
+open STLTableau.Section4.Finiteness.RightClockContext
+
+#check freshFor_excludes_context_reset
+#check noRightReset_iff_not_resetNames
+#check freshFor_context_noRightReset
+#check freshFor_context_endpointAlong
+#check owned_bounded_noRightReset
+#check owned_bounded_endpointAlong
+#check right_age_le_upper_of_numeric
+#check endpoint_window_of_numeric
+#check state_bounded_endpoint_window
+#print axioms freshFor_excludes_context_reset
+#print axioms noRightReset_iff_not_resetNames
+#print axioms owned_bounded_noRightReset
+#print axioms freshFor_context_endpointAlong
+#print axioms endpoint_window_of_numeric
+#print axioms state_bounded_endpoint_window

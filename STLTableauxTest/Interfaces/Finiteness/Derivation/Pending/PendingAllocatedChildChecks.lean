@@ -1,0 +1,12 @@
+import STLTableaux.Finiteness.Derivation.Pending.PendingAllocatedChild
+open STLTableau.Section4.Finiteness
+#check RawBranch.select_preserving_at
+#check ordinary_child_present_selected
+#check exists_ordinary_child_present_at
+#check ordinary_child_solo_selected
+#check exists_ordinary_child_solo_at
+#print axioms RawBranch.select_preserving_at
+#print axioms ordinary_child_present_selected
+#print axioms exists_ordinary_child_present_at
+#print axioms ordinary_child_solo_selected
+#print axioms exists_ordinary_child_solo_at

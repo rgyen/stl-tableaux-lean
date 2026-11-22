@@ -1,0 +1,10 @@
+import STLTableaux.Finiteness.Derivation.Selection.SelectedBranchHistory
+
+open STLTableau.Section4.Finiteness
+
+#check RawBranch.exists_preserving_fresh_at
+#check RawBranch.exists_preserving_history
+#check exists_selected_branch_history
+#print axioms RawBranch.exists_preserving_fresh_at
+#print axioms RawBranch.exists_preserving_history
+#print axioms exists_selected_branch_history

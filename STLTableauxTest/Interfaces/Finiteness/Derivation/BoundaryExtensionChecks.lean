@@ -1,0 +1,24 @@
+import STLTableaux.Finiteness.Derivation.BoundaryExtension
+
+open STLTableau.Section4.Finiteness
+
+#check plain_iff_upper_zero
+#check boundary_merge_at
+#check boundary_merge_under_reset
+#check boundary_extension_sound
+#check boundary_extension_iff_of_plain
+#check boundary_merge_with_body
+#check boundary_extension_with_body_iff_of_plain
+
+#print axioms plain_iff_upper_zero
+#print axioms boundary_merge_at
+#print axioms boundary_merge_under_reset
+#print axioms boundary_extension_sound
+#print axioms boundary_extension_iff_of_plain
+#print axioms boundary_merge_with_body
+#print axioms boundary_extension_with_body_iff_of_plain
+
+#check unused_singleton_reset
+#check boundary_merge_remove_right_reset
+#print axioms unused_singleton_reset
+#print axioms boundary_merge_remove_right_reset

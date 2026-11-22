@@ -1,0 +1,4 @@
+import STLTableaux.Finiteness.Derivation.Pending.PendingGeneralOuterAssembly
+open STLTableau.Section4.Finiteness
+#check assemble_owned_outside_guards_general
+#print axioms assemble_owned_outside_guards_general

@@ -1,0 +1,126 @@
+/-
+Copyright (c) 2026 Geunyeol Yu. All rights reserved.
+Released under the GNU General Public License, version 3. See LICENSE.
+Authors: Geunyeol Yu
+-/
+import STLTableaux.Automata.Execution.PrelimExecution
+import STLTableaux.Automata.Execution.WellBehaved
+import STLTableaux.Automata.Execution.FlowSignalContinuity
+import STLTableaux.Semantics.Robustness.Robustness
+import STLTableaux.Semantics.Robustness.RobustnessShift
+import STLTableaux.ModelChecking.Preprocessing.NonStrictAtoms
+import STLTableaux.ModelChecking.Preprocessing.NonStrictPositive
+import STLTableaux.ModelChecking.Preprocessing.NormalizedViolation
+import STLTableaux.ModelChecking.Preprocessing.ClosedTableauInput
+import STLTableaux.Automata.Translation.PrelimEntryTimes
+import STLTableaux.Automata.Translation.PrelimStateGoal
+import STLTableaux.Automata.Execution.BoundedZeroTimeExtension
+import STLTableaux.Automata.Composition.ParallelComposition
+import STLTableaux.Automata.Composition.SharedParallelComposition
+import STLTableaux.Automata.Composition.SharedParallelExecution
+import STLTableaux.Automata.Composition.SharedParallelPasting
+import STLTableaux.Automata.Execution.ExecutionTimeRefinement
+import STLTableaux.Automata.Execution.PrelimFlowComposition
+import STLTableaux.Automata.Execution.FlowConcatenation
+import STLTableaux.Automata.Execution.ObservedFlowChain
+import STLTableaux.Automata.Execution.ObservedFlowExecution
+import STLTableaux.Automata.Composition.SharedParallelGoalProjection
+import STLTableaux.Automata.Composition.SystemTableauComposition
+import STLTableaux.Automata.Composition.SystemTableauPasting
+import STLTableaux.Automata.Composition.SystemTableauFlowLift
+import STLTableaux.Automata.Composition.SystemTableauJumpLift
+import STLTableaux.Automata.Execution.PrelimFlowRefinement
+import STLTableaux.Automata.Recognition.PrelimPartitionConnection
+import STLTableaux.Automata.Recognition.PrelimBoundedPartition
+import STLTableaux.Automata.Recognition.ProjectedFlowAssembly
+import STLTableaux.Automata.Composition.SystemTableauProjectedCell
+import STLTableaux.Automata.Composition.SystemTableauRunWord
+import STLTableaux.Automata.Composition.SystemTableauSingletonWord
+import STLTableaux.Automata.Composition.SystemTableauRunAssembly
+import STLTableaux.Automata.Composition.SystemTableauForwardExecution
+import STLTableaux.Tableau.Construction.GeneratorPath
+import STLTableaux.Tableau.Correctness.TableauCorrectness
+import STLTableaux.Closure.Normalization.FaithfulTNFExistence
+import STLTableaux.Closure.Subsumption.SubsumptionAppendix
+import STLTableaux.Tableau.Traces.TraceSubsumption
+import STLTableaux.Tableau.Traces.FullTraceFreeClocks
+import STLTableaux.Closure.Correctness.GeneralClosureCompleteness
+import STLTableaux.Closure.Expansion.FaithfulPExpansion
+import STLTableaux.Closure.Expansion.ClosureCompletenessViaLevels
+import STLTableaux.Closure.Expansion.MinimalClosureReachability
+import STLTableaux.Closure.Expansion.FixedExpansionOrder
+import STLTableaux.Closure.Expansion.BranchwiseRank
+import STLTableaux.Closure.Expansion.BranchwiseClosure
+import STLTableaux.Closure.Expansion.BranchwiseClosureTermination
+import STLTableaux.Tableau.Traces.TableauTraceLemmas
+import STLTableaux.Semantics.Invariants.NumericFiniteExactness
+import STLTableaux.Closure.Support.BranchFreeClocks
+import STLTableaux.Tableau.Correctness.GeneratorPathCompleteness
+import STLTableaux.Closure.Subsumption.NumericGuardSubsumption
+import STLTableaux.Rules.Invariants.NumericBranchPreservation
+import STLTableaux.Closure.Correctness.NumericFromInvariant
+import STLTableaux.Closure.Correctness.FaithfulClosureSoundness
+import STLTableaux.Syntax.FaithfulNormalizedSyntax
+import STLTableaux.Syntax.InputSyntax
+import STLTableaux.Tableau.Stability.GeneratorStability
+import STLTableaux.Closure.Correctness.MixedConcreteClosure
+import STLTableaux.Closure.Counterexamples.CounterexamplesClosure
+import STLTableaux.Closure.Correctness.ConcreteClosure
+import STLTableaux.Closure.Correctness.SatisfiedAlphaClosure
+import STLTableaux.Syntax.TransitionForms
+import STLTableaux.Closure.Correctness.ClosureSoundness
+import STLTableaux.Tableau.Construction.Tableau
+import STLTableaux.Tableau.Construction.TableauState
+import STLTableaux.Closure.Counterexamples.Section4Counterexamples
+import STLTableaux.Rules.Invariants.Section4RuleInvariants
+import STLTableaux.Closure.Normalization.ClosureAlphaNext
+import STLTableaux.Automata.Execution.HybridAutomata
+import STLTableaux.Automata.Translation.TableauAutomata
+import STLTableaux.Automata.Recognition.TableauExecutionTime
+import STLTableaux.Automata.Recognition.TableauDiscreteCorrespondence
+import STLTableaux.Automata.Recognition.TableauExecutionPath
+import STLTableaux.Automata.Recognition.TableauSignalProjection
+import STLTableaux.Automata.Recognition.TableauClockValuations
+import STLTableaux.Automata.Recognition.TableauJumpPath
+import STLTableaux.Automata.Recognition.IndexedPath
+import STLTableaux.Automata.Recognition.ExecutionFlowPartition
+import STLTableaux.Automata.Recognition.ExecutionObservation
+import STLTableaux.Automata.Execution.IdentityJumpElimination
+import STLTableaux.Automata.Recognition.ExecutionSuffixPartition
+import STLTableaux.Tableau.Traces.TracePrefixTransport
+import STLTableaux.Automata.Recognition.TraceClockSchedule
+import STLTableaux.Automata.Recognition.RealClockTrace
+import STLTableaux.Automata.Recognition.TableauRealClockSchedule
+import STLTableaux.Automata.Recognition.ResetAgreement
+import STLTableaux.Semantics.IntervalSemantics
+import STLTableaux.Semantics.Intervals.IntervalLemmas
+import STLTableaux.Rules.Unbounded.Unbounded
+import STLTableaux.Rules.Unbounded.UnboundedCorrectness
+import STLTableaux.Semantics.Predicates.UnboundedJudgements
+import STLTableaux.Syntax.Section3Judgements
+import STLTableaux.Semantics.Predicates.UnboundedStructural
+import STLTableaux.Rules.Unbounded.UnboundedOpeningPreservation
+import STLTableaux.Semantics.Predicates.Predicates
+import STLTableaux.Rules.Finite.Transitions
+import STLTableaux.Rules.Finite.Equivalences
+import STLTableaux.Rules.Finite.Rules
+import STLTableaux.Semantics.Invariants.Invariants
+import STLTableaux.Rules.Finite.Bridge
+import STLTableaux.Rules.Finite.ClockedSoundness
+import STLTableaux.Rules.Finite.Correctness
+import STLTableaux.Rules.Finite.Preservation
+import STLTableaux.Semantics.Counterexamples.Claims
+import STLTableaux.Semantics.Counterexamples.Counterexamples
+
+import STLTableaux.Rules.Merging.ConnectedMergeStability
+import STLTableaux.Rules.Merging.ConnectedMergeTransport
+import STLTableaux.Rules.Merging.ConnectedDeferMerge
+import STLTableaux.Automata.Execution.TerminalPruning
+import STLTableaux.Automata.Recognition.ExecutionInducedPartitionReview
+import STLTableaux.Automata.Recognition.ExecutionBoundarySingletonAtoms
+-- Re-export the specialized outside-guard theorem.
+import STLTableaux.Finiteness.Derivation.Pending.PendingOuterAssembly
+
+/-! Compatibility import for interval semantics, tableau construction, and
+hybrid automata. Import `STLTableaux` for the full library or `STLTableaux.Finiteness`
+and `STLTableaux.ModelChecking` for the corresponding results. -/

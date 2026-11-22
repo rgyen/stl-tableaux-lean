@@ -1,0 +1,32 @@
+/-
+Copyright (c) 2026 Geunyeol Yu. All rights reserved.
+Released under the GNU General Public License, version 3. See LICENSE.
+Authors: Geunyeol Yu
+-/
+import STLTableaux.ModelChecking.Preprocessing.Admissibility
+import STLTableaux.ModelChecking.Preprocessing.ClosedTableauInput
+import STLTableaux.ModelChecking.Preprocessing.NonStrictAtoms
+import STLTableaux.ModelChecking.Preprocessing.NonStrictPositive
+import STLTableaux.ModelChecking.Preprocessing.Normalization
+import STLTableaux.ModelChecking.Preprocessing.NormalizedAtomVariability
+import STLTableaux.ModelChecking.Preprocessing.NormalizedInput
+import STLTableaux.ModelChecking.Preprocessing.NormalizedVariability
+import STLTableaux.ModelChecking.Preprocessing.NormalizedViolation
+import STLTableaux.ModelChecking.Preprocessing.NormalizedInputBranches
+import STLTableaux.ModelChecking.Preprocessing.NormalizedInputPreservation
+import STLTableaux.ModelChecking.Preprocessing.NormalizedInputVariability
+import STLTableaux.ModelChecking.Preprocessing.FalsityElimination
+import STLTableaux.ModelChecking.Preprocessing.Preprocessing
+import STLTableaux.ModelChecking.Preprocessing.RobustNegationNormalization
+import STLTableaux.ModelChecking.Preprocessing.RobustUntilElimination
+import STLTableaux.ModelChecking.Preprocessing.ThresholdPreprocessingMetadata
+import STLTableaux.ModelChecking.Reduction.CanonicalModelChecking
+import STLTableaux.ModelChecking.Reduction.FinalRobustModelChecking
+import STLTableaux.ModelChecking.Reduction.ModelCheckingConverse
+import STLTableaux.ModelChecking.Reduction.ModelCheckingForward
+import STLTableaux.ModelChecking.Reduction.ModelCheckingNegation
+import STLTableaux.ModelChecking.Reduction.RobustModelChecking
+import STLTableaux.ModelChecking.Reduction.SourceTrajectoryGoal
+
+/-! Model checking by reachability (Theorem 5.7) and its robust form
+(Corollary 5.8). -/

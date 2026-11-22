@@ -1,0 +1,17 @@
+import STLTableaux.Finiteness.Derivation.BoundaryGuardScope
+
+open STLTableau.Section4.Finiteness.BoundaryGuardScope
+
+#check defer_guard_absent
+#check absent_restrict
+#check absent_union_singleton
+#check check_guard_eq
+#check safe_boundary_guard_under_reset
+#check safe_defer_guard_under_reset
+#check safe_check_guard_under_reset
+#check extract_boundary_guard
+#print axioms defer_guard_absent
+#print axioms safe_boundary_guard_under_reset
+#print axioms safe_defer_guard_under_reset
+#print axioms safe_check_guard_under_reset
+#print axioms extract_boundary_guard

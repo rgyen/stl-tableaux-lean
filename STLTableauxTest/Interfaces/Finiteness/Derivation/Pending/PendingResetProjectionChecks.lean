@@ -1,0 +1,8 @@
+import STLTableaux.Finiteness.Derivation.Pending.PendingResetProjection
+open STLTableau.Section4.Finiteness
+#check SafeNormalization.currentResetClocks_eq
+#check canonical_currentResetClocks_subset
+#check canonical_safe_reset_protection
+#print axioms SafeNormalization.currentResetClocks_eq
+#print axioms canonical_currentResetClocks_subset
+#print axioms canonical_safe_reset_protection

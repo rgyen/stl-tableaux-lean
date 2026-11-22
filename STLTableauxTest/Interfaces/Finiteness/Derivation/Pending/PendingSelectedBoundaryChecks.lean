@@ -1,0 +1,4 @@
+import STLTableaux.Finiteness.Derivation.Pending.PendingSelectedBoundary
+open STLTableau.Section4.Finiteness
+#check select_boundary_child
+#print axioms select_boundary_child

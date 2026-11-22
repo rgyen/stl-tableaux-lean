@@ -1,0 +1,10 @@
+import STLTableaux.Finiteness.Derivation.Pending.PendingBoundaryBackward
+open STLTableau.Section4.Finiteness
+#check boundary_original_copy_reset
+#check boundary_copied_backward
+#check owned_boundary_original_body
+#check owned_boundary_copied_backward
+#print axioms boundary_original_copy_reset
+#print axioms boundary_copied_backward
+#print axioms owned_boundary_original_body
+#print axioms owned_boundary_copied_backward

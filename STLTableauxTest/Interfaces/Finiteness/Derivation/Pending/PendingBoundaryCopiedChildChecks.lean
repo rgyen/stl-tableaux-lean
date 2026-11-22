@@ -1,0 +1,13 @@
+import STLTableaux.Finiteness.Derivation.Pending.PendingBoundaryCopiedChild
+open STLTableau.Section4.Finiteness
+#check construct_boundary_child_owned_core
+#check construct_boundary_child_owned
+#check boundary_child_copy_reset
+#check boundary_child_copy_weight
+#check construct_copied_boundary_child_owned
+#check copied_boundary_child_weight_compare
+#print axioms construct_boundary_child_owned_core
+#print axioms construct_boundary_child_owned
+#print axioms boundary_child_copy_reset
+#print axioms construct_copied_boundary_child_owned
+#print axioms copied_boundary_child_weight_compare

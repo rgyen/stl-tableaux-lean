@@ -1,0 +1,4 @@
+import STLTableaux.Finiteness.Derivation.StateInputOwnership
+open STLTableau.Section4.Finiteness
+#check exists_owned_state_input
+#print axioms exists_owned_state_input

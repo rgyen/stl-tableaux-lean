@@ -1,0 +1,15 @@
+import STLTableaux.Finiteness.Derivation.InheritedResetExposure
+
+open STLTableau.Section4.Finiteness.InheritedResetExposure
+
+#check singleton_union_of_value
+#check expose
+#check expose_conjunct
+#check optional_boundary_with_inherited_reset
+#check required_boundary_with_inherited_reset
+#check optional_erased_normalizes
+#print axioms singleton_union_of_value
+#print axioms expose
+#print axioms expose_conjunct
+#print axioms optional_boundary_with_inherited_reset
+#print axioms optional_erased_normalizes

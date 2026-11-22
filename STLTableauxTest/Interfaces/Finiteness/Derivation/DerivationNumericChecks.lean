@@ -1,0 +1,12 @@
+import STLTableaux.Finiteness.Derivation.DerivationNumeric
+
+open STLTableau.Section4.Finiteness
+
+#check Resolve.NumericOccurrences
+#check Resolve.numeric_occurrences_and_outputs
+#check Resolve.recover_of_numericOccurrences
+#check Resolve.recover_from_input_numeric
+#print axioms Resolve.numeric_occurrences_and_outputs
+#print axioms Resolve.recover_of_numericOccurrences
+#print axioms Resolve.recover_from_input_numeric
+#print axioms holds_implies_nonPredicate

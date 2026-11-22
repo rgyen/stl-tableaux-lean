@@ -1,0 +1,14 @@
+import STLTableaux.Finiteness.Derivation.BoundaryReplacementSemantics
+open STLTableau.Section4.Finiteness
+#check boundaryReplacement_position_lt
+#check boundaryReplacement_ready
+#check boundaryReplacement_holds
+#check boundaryReplacement_invariant
+#check boundaryReplacement_underlyingFormulas
+#check boundaryReplacement_stable
+#print axioms boundaryReplacement_position_lt
+#print axioms boundaryReplacement_ready
+#print axioms boundaryReplacement_holds
+#print axioms boundaryReplacement_invariant
+#print axioms boundaryReplacement_underlyingFormulas
+#print axioms boundaryReplacement_stable

@@ -1,0 +1,9 @@
+import STLTableaux.Finiteness.Derivation.EmptyStateCompletion
+open STLTableau.Section4.Finiteness
+#check SafeNormalization.current_predicate_mem
+#check SafeNormalization.weight_zero_of_locals_empty
+#check Derives.empty_locals_terminal
+#check Derives.empty_next_terminal
+#print axioms SafeNormalization.weight_zero_of_locals_empty
+#print axioms Derives.empty_locals_terminal
+#print axioms Derives.empty_next_terminal

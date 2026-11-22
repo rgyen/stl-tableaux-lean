@@ -1,0 +1,6 @@
+import STLTableaux.Finiteness.Derivation.Pending.PendingOrdinaryChild
+
+open STLTableau.Section4.Finiteness
+
+#check exists_ordinary_child_present
+#print axioms exists_ordinary_child_present

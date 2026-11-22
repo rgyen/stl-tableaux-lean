@@ -1,0 +1,6 @@
+import STLTableaux.Finiteness.Derivation.InheritedRetention
+open STLTableau.Section4.Finiteness
+#check retainedSource_guardClocks
+#check inherited_retention_output
+#print axioms retainedSource_guardClocks
+#print axioms inherited_retention_output
